@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://privamiertesh.github.io/site-cn-aiyouxi-com-cn/sitemap.xml
