@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>威廉希尔 – 重新发现 · 持续关注</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fdefd8 0%, #fce2c1 40%, #f8d3a6 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem 0;
+            color: #2f2a24;
+        }
+
+        .page {
+            max-width: 980px;
+            width: 100%;
+        }
+
+        /* 主卡片容器 */
+        .card {
+            background: rgba(255, 250, 242, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 16px 40px rgba(160, 100, 40, 0.15),
+                        0 4px 12px rgba(80, 50, 20, 0.06);
+            transition: box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 48px rgba(160, 100, 40, 0.2);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            text-align: center;
+            padding: 1.8rem 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #b56a2e, #8b4f1e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #6b4d31;
+            border-bottom: 1px dashed #dbb58c;
+            display: inline-block;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.05rem;
+            color: #4f3e2e;
+            max-width: 680px;
+            margin: 0 auto 1.8rem;
+            line-height: 1.7;
+        }
+
+        /* 特色网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.6rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .feature-item {
+            background: #fffbf5;
+            border-radius: 28px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(150, 90, 30, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #f7e4d0;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(130, 80, 30, 0.1);
+        }
+
+        .feature-item .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #7f4f24;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #5f4a34;
+            line-height: 1.5;
+        }
+
+        /* 说明区块 & FAQ */
+        .content-section {
+            margin: 1.8rem 0 0.8rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #6f4623;
+            margin-bottom: 1rem;
+            padding-left: 0.3rem;
+            border-left: 5px solid #d9995a;
+            padding-left: 0.9rem;
+        }
+
+        .content-section p {
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #3f342a;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-summary {
+            background: #f9efe4;
+            border-radius: 28px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.6rem 0 0.6rem;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid #e5cfb8;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-summary details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-summary summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #5e3d25;
+            padding: 0.2rem 0;
+            font-size: 1rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-summary summary::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #b9793c;
+            font-size: 1.1rem;
+            transition: transform 0.15s ease;
+        }
+
+        .faq-summary details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-summary summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-summary .answer {
+            padding: 0.4rem 0 0.2rem 1.6rem;
+            font-size: 0.95rem;
+            color: #4e3d2e;
+            line-height: 1.6;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem 1.4rem;
+            padding: 1.2rem 0 0.8rem;
+            border-top: 1px solid #e6d3bf;
+            margin-top: 1.2rem;
+        }
+
+        .footer-links a {
+            color: #6b4629;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            background: #faf1e8;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            font-weight: 450;
+        }
+
+        .footer-links a:hover {
+            background: #dbaa78;
+            color: #2b1e14;
+            box-shadow: 0 2px 8px rgba(160, 90, 30, 0.2);
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #7a624b;
+            padding: 1rem 0 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .card {
+                padding: 1.6rem 1.4rem;
+                border-radius: 28px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 0.95rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .faq-summary {
+                padding: 1rem 1.2rem;
+            }
+
+            .footer-links {
+                gap: 0.5rem 0.8rem;
+            }
+
+            .footer-links a {
+                font-size: 0.85rem;
+                padding: 0.2rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* 强调链接按钮感 */
+        .inline-highlight {
+            background: #e9d3bd;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            white-space: nowrap;
+            font-weight: 500;
+            color: #4d311d;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+
+        .inline-highlight:hover {
+            background: #d6b491;
+        }
+
+        a {
+            color: #844f27;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
+
+        a:hover {
+            color: #a15d2a;
+        }
+
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="card">
+
+        <!-- Hero 区 -->
+        <div class="hero">
+            <h1>威廉希尔</h1>
+            <div class="sub">再次遇见 · 长久收藏</div>
+            <p class="tagline">
+                不只是平台，更是持续关注的落脚点。无论你何时回来，熟悉的体验与不断优化的细节，都为你保留。
+            </p>
+        </div>
+
+        <!-- 优势区（特点卡片） -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="icon">📌</span>
+                <h3>一键收藏</h3>
+                <p>将页面加入浏览器书签或主屏幕，随时返回，无需重复寻找入口。</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🔄</span>
+                <h3>回访友好</h3>
+                <p>界面结构与导航连贯，间隔数日再次打开依然清晰顺手。</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">📡</span>
+                <h3>持续更新</h3>
+                <p>内容与功能保持迭代，为长期关注者提供更丰富的支持。</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon">🧭</span>
+                <h3>稳定入口</h3>
+                <p>直接记住主站地址，避免信息分散，专注在核心体验上。</p>
+            </div>
+        </div>
+
+        <!-- 说明区：从再次访问、收藏和持续关注展开 -->
+        <div class="content-section">
+            <h2>收藏 · 回访 · 长期价值</h2>
+            <p>
+                当你第一次来到 <a href="https://main--williamhill.com" class="inline-highlight">威廉希尔</a>，
+                也许只是短暂浏览。但一个值得反复使用的服务，往往藏在再次打开的举动里。
+                书签栏里留一个位置，或把页面添加到桌面，下次访问时就不会迷失在搜索中。
+                真正的便利来自于习惯性的回访，而稳定的入口正是这一切的起点。
+            </p>
+            <p>
+                持续关注意味着你愿意花时间了解平台的细节与变化。无论是界面的微调、功能的补充还是信息的重组，
+                每一次更新都希望为回头客减少适应成本。收藏不只是保存一个链接，更是为自己保留一条熟悉的路径。
+            </p>
+            <p>
+                对于经常使用的朋友，建议定期关注站内通知或板块更新；即使间隔几周再回来，
+                核心结构依旧保持一致，让你能快速衔接之前的进度。这也是我们坚持信息密度与清晰导航并重的原因。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h2 style="font-size:1.2rem; margin-bottom:1rem; border-left:4px solid #d9995a; padding-left:0.8rem; color:#5f3d21;">常见问题摘要</h2>
+            <details>
+                <summary>如何快速再次找到这里？</summary>
+                <div class="answer">建议将当前页面添加至浏览器书签（Ctrl+D / Cmd+D），或在移动端使用「添加到主屏幕」功能。直接记住主站地址也是可靠方式。</div>
+            </details>
+            <details>
+                <summary>间隔一段时间后访问，内容会有变化吗？</summary>
+                <div class="answer">功能框架与核心信息保持稳定，同时会不定期优化细节和补充说明。回访时基本无需重新适应布局。</div>
+            </details>
+            <details>
+                <summary>收藏后是否需要频繁检查更新？</summary>
+                <div class="answer">不需要。你可以在方便时自然回访，网站不会主动推送大量信息。一切以你自己的节奏为准。</div>
+            </details>
+            <details>
+                <summary>在多个设备上如何保持关注？</summary>
+                <div class="answer">同步浏览器书签或直接在不同设备上访问同一地址即可。无需额外注册或记忆复杂信息。</div>
+            </details>
+        </div>
+
+        <!-- 底部链接区（按钮感链接） -->
+        <div class="footer-links">
+            <a href="https://main--williamhill.com">威廉希尔</a>
+            <a href="#">关于收藏</a>
+            <a href="#">使用提示</a>
+            <a href="#">常见问题</a>
+            <a href="#">持续关注</a>
+        </div>
+
+        <div class="footer-note">
+            — 把值得反复回访的地址，放在触手可及的地方。
+        </div>
+    </div>
+    <!-- 额外留白呼吸 -->
+    <div style="height:0.5rem;"></div>
+</div>
+</body>
+</html>
